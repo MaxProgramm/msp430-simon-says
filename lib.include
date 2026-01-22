@@ -1,0 +1,175 @@
+
+                                            
+hold		.macro
+__hold?		jmp __hold?
+			.endm                                            
+
+sleep		.macro
+			call	#_sleep
+			.endm
+
+setP1out	.macro
+			bis.b   #11111111b,&P1DIR       ; make P1.0 to P1.7 output
+			bic.b   #11111111b,&P1OUT       ; clear P1.0 to P1.7
+			.endm
+setP2in		.macro
+			bis.b   #00000000b,&P2DIR       ; make P2 input ( == default)
+			bis.b   #00111111b,&P2REN       ; enable pullup/pulldown resistors
+			bis.b   #00001111b,&P2OUT       ; set pullup/pulldown resistors 0-3 to pullup
+			bic.b   #11110000b,&P2OUT       ; set pullup/pulldown resistors 4-7 to pulldown
+			.endm
+			
+testBtn1	.macro
+			bit.b	#00000001b, &P2IN		;test P2in
+			.endm			
+
+testBtn2	.macro
+			bit.b	#00000010b, &P2IN		;test P2in
+			.endm			
+
+testBtn3	.macro
+			bit.b	#00000100b, &P2IN		;test P2in
+			.endm			
+
+testBtn4	.macro
+			bit.b	#00001000b, &P2IN		;test P2in
+			.endm			
+
+led1on		.macro
+			bis.b	#00000001b, &P1OUT
+			.endm
+
+led2on		.macro
+			bis.b	#00000010b, &P1OUT
+			.endm
+
+led3on		.macro
+			bis.b	#00000100b, &P1OUT
+			.endm
+
+led4on		.macro
+			bis.b	#00001000b, &P1OUT
+			.endm
+
+led5on		.macro
+			bis.b	#00010000b, &P1OUT
+			.endm
+
+led6on		.macro
+			bis.b	#00100000b, &P1OUT
+			.endm
+
+led7on		.macro
+			bis.b	#01000000b, &P1OUT
+			.endm
+
+led8on		.macro
+			bis.b	#10000000b, &P1OUT
+			.endm
+
+led1off		.macro
+			bic.b	#00000001b, &P1OUT
+			.endm
+
+led2off		.macro
+			bic.b	#00000010b, &P1OUT
+			.endm
+
+led3off		.macro
+			bic.b	#00000100b, &P1OUT
+			.endm
+
+led4off		.macro
+			bic.b	#00001000b, &P1OUT
+			.endm
+
+led5off		.macro
+			bic.b	#00010000b, &P1OUT
+			.endm
+
+led6off		.macro
+			bic.b	#00100000b, &P1OUT
+			.endm
+
+led7off		.macro
+			bic.b	#01000000b, &P1OUT
+			.endm
+
+led8off		.macro
+			bic.b	#10000000b, &P1OUT
+			.endm
+
+
+init		.macro
+			mov   		#0280h,SP               ; initialize stack pointer
+			mov			#WDTPW+WDTHOLD,&WDTCTL  ; stop watchdog timer
+			setP1out
+			setP2in
+			.endm
+
+
+
+			.text                    
+            .global _main		    		; define entry point
+
+_sleep		mov #0, r15
+__sl		dec	r15
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			nop
+			jnz __sl
+			ret			
+
