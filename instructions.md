@@ -1,4 +1,5 @@
 ## Simons Says - MSP430
+### User Instructons
 Das Spiel besteht aus 2 Teilen:
 1. Bestimmte LEDs des MSPs blinken auf
 2. Der Nutzer muss die Leds in der angezigten Reihenfolge drücken
@@ -34,6 +35,11 @@ Tasten: xxoooooo, xxoxoooo
 ```
 --> Spiel beginnt von vorne wg. FALSCHEN TASTEN
 
+
+### Technical Documentation
+Wichtige Register und Ramspeicher
+
+≥≤\/
 
 
 
