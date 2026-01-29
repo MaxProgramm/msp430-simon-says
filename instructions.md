@@ -39,7 +39,5 @@ Tasten: xxoooooo, xxoxoooo
 ### Technical Documentation
 Wichtige Register und Ramspeicher
 
-≥≤\/
-
 
 
