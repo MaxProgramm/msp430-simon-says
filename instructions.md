@@ -4,27 +4,34 @@ Das Spiel besteht aus 2 Teilen:
 1. Bestimmte LEDs des MSPs blinken auf
 2. Der Nutzer muss die LEDs in der angezigten Reihenfolge drücken
 
-Jede Runde werden wieder neue LEDs angezeigt. Der Nutzer muss sich also immer mehr LEDs merken. Das Spiel wird so kontinuierlich schwieriger. Die Taste muss ca. eine Selunde lang gedrückt werden. Wenn man die richtige Taset gedrückt hat, leuchtet die 8. LED kurz auf. Das Speil geht insegsamt 10 Runden, es folgt eine Sucessanimation. Sollte der Nutzer einen Fehler machen, folgt eine Failanimation und das Spiel beginnt von vorner
+Jede Runde werden wieder neue LEDs angezeigt. Der Nutzer muss sich also immer mehr LEDs merken. Das Spiel wird so kontinuierlich schwieriger. Die Taste muss ca. eine Sekunde lang gedrückt werden. Wenn man die richtige Taste gedrückt hat, leuchtet die 8. LED kurz auf. Nach einer vollständigen Runde, spielt die success animation. Das Spiel geht insgesamt 10 Runden, danach beginnt das spiel von vorne. Sollte der Nutzer einen Fehler machen, folgt eine Failanimation und das Spiel beginnt von vorne.
 
 Bsp.:
 
 Runde 1:
 ```
-LEDs: xooooooo
-Tasten: xooooooo 
+Level 1
+	LEDs: xooooooo
+
+	Tasten:
+		xooooooo 
+		8. LED leuchtet auf
+	-> Successanimation und nächste Runde
 ```
-8. LED leuchtet auf
 
 Runde 2:
 ```
-LEDs: xooooooo, oxoooooo
-Tasten: xooooooo, oxoooooo
-```
-8. LED leuchtet auf
-...
+Level 1, 2
+	LEDs: xooooooo, oxoooooo
 
-Nach 10 Runden beginnt das Spiel von vorne.
--> Success Animation
+	Tasten:
+		xooooooo
+		8. Led leuchtet auf
+		oxoooooo
+		8. Led leuchtet auf
+	-> Successanimation und nächste Runde 
+```
+...
 
 Sollte der Nutzer einen Fehler machen, beginnt das Spiel von vorne.
 
@@ -32,18 +39,29 @@ Bsp.:
 
 Runde 1:
 ```
-LEDs: xooooooo
-Tasten: xooooooo 
+Level 1
+	LEDs: xooooooo
+
+	Tasten:
+		xooooooo 
+		8. LED leuchtet auf
+	-> Successanimation und nächste Runde
 ```
-8. LED leuchtet auf
 
 Runde 2:
 ```
-LEDs: xooooooo, oxoooooo
-Tasten: xooooooo, ooxooooo
+Level 1, 2
+	LEDs: xooooooo, oxoooooo
+
+	Tasten:
+		xooooooo
+		8. Led leuchtet auf
+		- FEHLER -
+		ooxooooo - FEHLER
+		- FEHLER -
+	-> Failanimation
+	-> Spiel beginnt von vorne wg. FALSCHEN TASTEN
 ```
---> Spiel beginnt von vorne wg. FALSCHEN TASTEN
---> Failanimation
 
 Failanimation:
 - 1 x Flash + Lauflicht
