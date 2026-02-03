@@ -69,5 +69,11 @@ Failanimation:
 Successanimation:
 - 2 x Flash
 
+### Technische Details
+**Speicherverwendung:**
+- r12: Enthält die Adresse des ersten Levels
+- RAM-Plätze 520-529 enthalten die Level
+
+
 
 
